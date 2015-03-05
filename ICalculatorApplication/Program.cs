@@ -12,6 +12,7 @@ namespace ICalculatorApplication
         {
             List<int> numbers;
             string info;
+            int numberSS;
 
             for (int i = 0; i < 20; i++ )
             {
@@ -20,20 +21,32 @@ namespace ICalculatorApplication
                 {
                     try
                     {
-                        int numberSS = Int32.Parse(info);
+                        numberSS = Int32.Parse(info);
                         Console.Write(info);
-                        i++;
-                        break;
+                        
                     }
 
                     catch (InvalidCastException e)
                     {
                         Console.WriteLine(e.Message+ "Do you wish to continue? Y/N?");
                         
-                        Console.ReadKey();
+                        ConsoleKeyInfo key = Console.ReadKey();
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            Console.WriteLine("Returning back now. . .");
+                        }
+                        else
+                        {
+                            return;
+                        }
+                      
 
-                    }
+                    }  i++;
+                    numbers.Add(new int() { numberSS, i});
+                        break;
                 }
+               
+               
             }
 
         }     
